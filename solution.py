@@ -73,3 +73,14 @@ print("\nVisualizations saved successfully as PNG files.")
 correlation = df['study_hours'].corr(df['final_score'])
 print(f"\nPearson Correlation between study_hours and final_score: {correlation:.4f}")
 
+
+# PART E — VECTORS AND DOT PRODUCT
+
+# Select one student row as a vector x (excluding final_score)
+x_vector = X.loc[10].to_numpy()
+w_vector = np.array([0.5, 0.2, 0.4])
+bias = 5
+
+predicted_score = np.dot(w_vector, x_vector) + bias
+print(f"\nVector Dot Product Calculation (Student 10): {predicted_score:.4f}")
+
