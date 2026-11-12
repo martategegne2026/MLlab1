@@ -84,3 +84,13 @@ bias = 5
 predicted_score = np.dot(w_vector, x_vector) + bias
 print(f"\nVector Dot Product Calculation (Student 10): {predicted_score:.4f}")
 
+# PART F — SCALING
+
+df['study_hours_scaled'] = (df['study_hours'] - df['study_hours'].mean()) / df['study_hours'].std()
+df['previous_mark_scaled'] = (df['previous_mark'] - df['previous_mark'].mean()) / df['previous_mark'].std()
+
+print("\n--- SCALED DATA (First 5 rows) ---")
+print(df[['study_hours_scaled', 'previous_mark_scaled']].head())
+
+# Export cleaned dataset for records
+df.to_csv('student_data_cleaned.csv', index=False)
