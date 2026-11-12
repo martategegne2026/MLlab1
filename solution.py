@@ -67,29 +67,3 @@ plt.ylabel('Final Score')
 plt.savefig('study_hours_vs_score.png') # Saves visualization to workspace
 plt.close()
 print("\nVisualizations saved successfully as PNG files.")
-
-# PART D — CORRELATION
-correlation = df['study_hours'].corr(df['final_score'])
-print(f"\nPearson Correlation between study_hours and final_score: {correlation:.4f}")
-
-
-# PART E — VECTORS AND DOT PRODUCT
-
-# Select one student row as a vector x (excluding final_score)
-x_vector = X.loc[10].to_numpy()
-w_vector = np.array([0.5, 0.2, 0.4])
-bias = 5
-
-predicted_score = np.dot(w_vector, x_vector) + bias
-print(f"\nVector Dot Product Calculation (Student 10): {predicted_score:.4f}")
-
-# PART F — SCALING
-
-df['study_hours_scaled'] = (df['study_hours'] - df['study_hours'].mean()) / df['study_hours'].std()
-df['previous_mark_scaled'] = (df['previous_mark'] - df['previous_mark'].mean()) / df['previous_mark'].std()
-
-print("\n--- SCALED DATA (First 5 rows) ---")
-print(df[['study_hours_scaled', 'previous_mark_scaled']].head())
-
-# Export cleaned dataset for records
-df.to_csv('student_data_cleaned.csv', index=False)
