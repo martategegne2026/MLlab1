@@ -67,3 +67,9 @@ plt.ylabel('Final Score')
 plt.savefig('study_hours_vs_score.png') # Saves visualization to workspace
 plt.close()
 print("\nVisualizations saved successfully as PNG files.")
+
+
+# PART D — CORRELATION
+correlation = df['study_hours'].corr(df['final_score'])
+print(f"\nPearson Correlation between study_hours and final_score: {correlation:.4f}")
+
